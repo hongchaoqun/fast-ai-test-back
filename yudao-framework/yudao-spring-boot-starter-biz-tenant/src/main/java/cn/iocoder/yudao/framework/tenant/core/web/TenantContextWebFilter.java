@@ -25,6 +25,9 @@ public class TenantContextWebFilter extends OncePerRequestFilter {
         Long tenantId = WebFrameworkUtils.getTenantId(request);
         if (tenantId != null) {
             TenantContextHolder.setTenantId(tenantId);
+        }else{
+            tenantId = 1l; // 忽略多租户设计
+            TenantContextHolder.setTenantId(tenantId);
         }
         try {
             chain.doFilter(request, response);
