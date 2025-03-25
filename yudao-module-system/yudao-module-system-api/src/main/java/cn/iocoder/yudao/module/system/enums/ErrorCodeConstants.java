@@ -173,6 +173,6 @@ public interface ErrorCodeConstants {
 
     ErrorCode DATA_NOT_EXISTS = new ErrorCode(1_003_001_001, "api接口不存在");
 
-    ErrorCode DIRECTORY_DATA_NOT_EXISTS = new ErrorCode(1_003_001_001, "分组目录不存在");
+    ErrorCode DIRECTORY_DATA_NOT_EXISTS = new ErrorCode(1_003_001_002, "分组目录不存在");
 
 }
