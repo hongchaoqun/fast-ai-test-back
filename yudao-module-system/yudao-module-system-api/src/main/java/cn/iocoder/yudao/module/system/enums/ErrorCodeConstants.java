@@ -169,6 +169,10 @@ public interface ErrorCodeConstants {
 
     // ========== api 管理 项目管理 ==========
 
-    ErrorCode PROJECT_NOT_EXISTS = new ErrorCode(1_003_001_000, "站内信模版不存在");
+    ErrorCode PROJECT_NOT_EXISTS = new ErrorCode(1_003_001_000, "项目不存在");
+
+    ErrorCode DATA_NOT_EXISTS = new ErrorCode(1_003_001_001, "api接口不存在");
+
+    ErrorCode DIRECTORY_DATA_NOT_EXISTS = new ErrorCode(1_003_001_001, "分组目录不存在");
 
 }

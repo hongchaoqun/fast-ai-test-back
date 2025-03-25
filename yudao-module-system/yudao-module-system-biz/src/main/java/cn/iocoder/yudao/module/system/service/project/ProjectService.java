@@ -1,13 +1,10 @@
 package cn.iocoder.yudao.module.system.service.project;
 
-import java.util.*;
-
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectPageReqVO;
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectSaveReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectPageReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectSaveReqVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.project.ProjectDO;
 import jakarta.validation.*;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
-import cn.iocoder.yudao.framework.common.pojo.PageParam;
 
 /**
  * api项目 Service 接口

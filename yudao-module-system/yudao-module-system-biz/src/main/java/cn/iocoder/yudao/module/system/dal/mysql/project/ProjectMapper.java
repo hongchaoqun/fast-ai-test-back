@@ -1,11 +1,9 @@
 package cn.iocoder.yudao.module.system.dal.mysql.project;
 
-import java.util.*;
-
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.mybatis.core.query.LambdaQueryWrapperX;
 import cn.iocoder.yudao.framework.mybatis.core.mapper.BaseMapperX;
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectPageReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectPageReqVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.project.ProjectDO;
 import org.apache.ibatis.annotations.Mapper;
 

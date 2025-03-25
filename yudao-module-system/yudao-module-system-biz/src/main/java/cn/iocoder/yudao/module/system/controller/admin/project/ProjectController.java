@@ -1,8 +1,8 @@
-package cn.iocoder.yudao.module.system.controller.app.project;
+package cn.iocoder.yudao.module.system.controller.admin.project;
 
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectPageReqVO;
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectRespVO;
-import cn.iocoder.yudao.module.system.controller.app.project.vo.ProjectSaveReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectSaveReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectPageReqVO;
+import cn.iocoder.yudao.module.system.controller.admin.project.vo.ProjectRespVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.project.ProjectDO;
 import cn.iocoder.yudao.module.system.service.project.ProjectService;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Operation;
 
-import jakarta.validation.constraints.*;
 import jakarta.validation.*;
 import jakarta.servlet.http.*;
 import java.util.*;
