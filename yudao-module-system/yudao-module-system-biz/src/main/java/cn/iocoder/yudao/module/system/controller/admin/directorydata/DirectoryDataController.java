@@ -5,6 +5,7 @@ import cn.iocoder.yudao.module.system.controller.admin.directorydata.vo.Director
 import cn.iocoder.yudao.module.system.controller.admin.directorydata.vo.DirectoryDataSaveReqVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.apidata.ApiDataDO;
 import cn.iocoder.yudao.module.system.dal.dataobject.directorydata.DirectoryDataDO;
+import cn.iocoder.yudao.module.system.service.apidata.ApiDataService;
 import cn.iocoder.yudao.module.system.service.directorydata.DirectoryDataService;
 import org.springframework.web.bind.annotation.*;
 import jakarta.annotation.Resource;
@@ -40,6 +41,8 @@ public class DirectoryDataController {
 
     @Resource
     private DirectoryDataService directoryDataService;
+    @Resource
+    private ApiDataService apiDataService;
 
     @PostMapping("/create")
     @Operation(summary = "创建目录管理")
@@ -79,7 +82,11 @@ public class DirectoryDataController {
     @PreAuthorize("@ss.hasPermission('api:directory-data:query')")
     public CommonResult<PageResult<DirectoryDataRespVO>> getDirectoryDataPage(@Valid DirectoryDataPageReqVO pageReqVO) {
         PageResult<DirectoryDataDO> pageResult = directoryDataService.getDirectoryDataPage(pageReqVO);
-        return success(BeanUtils.toBean(pageResult, DirectoryDataRespVO.class));
+        PageResult<DirectoryDataRespVO> result =  BeanUtils.toBean(pageResult, DirectoryDataRespVO.class);
+        result.getList().forEach(item -> {
+            item.setDatas(apiDataService.getDataListByDirId(item.getId()));
+        });
+        return success(result);
     }
 
     @GetMapping("/export-excel")

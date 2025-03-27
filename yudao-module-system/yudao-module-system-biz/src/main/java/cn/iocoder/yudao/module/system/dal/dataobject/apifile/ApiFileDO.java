@@ -40,4 +40,19 @@ public class ApiFileDO extends BaseDO {
      */
     private Long dirId;
 
+    /**
+     * 数据量
+     */
+    private Integer number;
+
+    /**
+     * 训练模式
+     */
+    private String model;
+
+    /**
+     * 是否启用 0=否 ，1=是
+     */
+    private Integer enabled;
+
 }

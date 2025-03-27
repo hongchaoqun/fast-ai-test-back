@@ -11,6 +11,8 @@ import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
 
 
+import java.util.List;
+
 import static cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionUtil.exception;
 import static cn.iocoder.yudao.module.system.enums.ErrorCodeConstants.DATA_NOT_EXISTS;
 
@@ -68,4 +70,8 @@ public class ApiDataServiceImpl implements ApiDataService {
         return dataMapper.selectPage(pageReqVO);
     }
 
+    @Override
+    public List<ApiDataDO> getDataListByDirId(Long id) {
+        return dataMapper.selectListByDirId(id);
+    }
 }

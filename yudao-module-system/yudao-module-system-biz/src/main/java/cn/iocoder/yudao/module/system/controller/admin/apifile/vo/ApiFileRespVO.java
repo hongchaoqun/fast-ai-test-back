@@ -32,4 +32,25 @@ public class ApiFileRespVO {
     @ExcelProperty("创建时间")
     private LocalDateTime createTime;
 
+    /**
+     * 数据量
+     */
+    @Schema(description = "数据量", example = "20979")
+    private Integer number;
+
+    /**
+     * 训练模式
+     */
+    @Schema(description = "训练模式", example = "直接训练")
+    private String model;
+
+    /**
+     * 是否启用 0=否 ，1=是
+     */
+    @Schema(description = "是否启用 0=否 ，1=是", example = "1")
+    private Integer enabled;
+
+    @Schema(description = "分组目录名", example = "芋艿")
+    private String dirName;
+
 }

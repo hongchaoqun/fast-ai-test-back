@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.system.controller.admin.directorydata.vo;
 
+import cn.iocoder.yudao.module.system.dal.dataobject.apidata.ApiDataDO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import java.util.*;
@@ -31,5 +32,8 @@ public class DirectoryDataRespVO {
     @Schema(description = "项目id", example = "8363")
     @ExcelProperty("项目id")
     private Long projectId;
+
+    @Schema(description = "api接口", example = "http://sssss.jpg")
+    private List<ApiDataDO> datas;
 
 }

@@ -4,7 +4,9 @@ import cn.iocoder.yudao.module.system.controller.admin.apifile.vo.ApiFilePageReq
 import cn.iocoder.yudao.module.system.controller.admin.apifile.vo.ApiFileRespVO;
 import cn.iocoder.yudao.module.system.controller.admin.apifile.vo.ApiFileSaveReqVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.apifile.ApiFileDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.directorydata.DirectoryDataDO;
 import cn.iocoder.yudao.module.system.service.apifile.ApiFileService;
+import cn.iocoder.yudao.module.system.service.directorydata.DirectoryDataService;
 import org.springframework.web.bind.annotation.*;
 import jakarta.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
@@ -39,6 +41,8 @@ public class ApiFileController {
 
     @Resource
     private ApiFileService fileService;
+    @Resource
+    private DirectoryDataService directoryDataService;
 
     @PostMapping("/create")
     @Operation(summary = "创建接口文件")
@@ -78,7 +82,14 @@ public class ApiFileController {
     @PreAuthorize("@ss.hasPermission('api:file:query')")
     public CommonResult<PageResult<ApiFileRespVO>> getFilePage(@Valid ApiFilePageReqVO pageReqVO) {
         PageResult<ApiFileDO> pageResult = fileService.getFilePage(pageReqVO);
-        return success(BeanUtils.toBean(pageResult, ApiFileRespVO.class));
+        PageResult<ApiFileRespVO> pageResultVO = BeanUtils.toBean(pageResult, ApiFileRespVO.class);
+        pageResultVO.getList().forEach(item -> {
+            DirectoryDataDO directoryData = directoryDataService.getDirectoryData(item.getDirId());
+            if(directoryData != null){
+                item.setDirName(directoryData.getName());
+            }
+        });
+        return success(pageResultVO);
     }
 
     @GetMapping("/export-excel")

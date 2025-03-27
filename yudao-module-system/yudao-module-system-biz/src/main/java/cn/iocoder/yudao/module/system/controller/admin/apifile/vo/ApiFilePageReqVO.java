@@ -28,4 +28,22 @@ public class ApiFilePageReqVO extends PageParam {
     @DateTimeFormat(pattern = FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND)
     private LocalDateTime[] createTime;
 
+    /**
+     * 数据量
+     */
+    @Schema(description = "数据量", example = "20979")
+    private Integer number;
+
+    /**
+     * 训练模式
+     */
+    @Schema(description = "训练模式", example = "直接训练")
+    private String model;
+
+    /**
+     * 是否启用 0=否 ，1=是
+     */
+    @Schema(description = "是否启用 0=否 ，1=是", example = "1")
+    private Integer enabled;
+
 }

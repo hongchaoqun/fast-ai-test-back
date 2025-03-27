@@ -54,4 +54,10 @@ public interface ApiDataService {
      */
     PageResult<ApiDataDO> getDataPage(ApiDataPageReqVO pageReqVO);
 
+    /**
+     * 获得接口管理列表
+     * @param id
+     * @return
+     */
+    List<ApiDataDO> getDataListByDirId(Long id);
 }
