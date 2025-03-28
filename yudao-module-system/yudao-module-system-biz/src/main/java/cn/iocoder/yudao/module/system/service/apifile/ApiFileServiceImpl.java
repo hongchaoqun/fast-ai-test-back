@@ -1,5 +1,6 @@
 package cn.iocoder.yudao.module.system.service.apifile;
 
+import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
 import cn.iocoder.yudao.module.system.controller.admin.apifile.vo.ApiFilePageReqVO;
 import cn.iocoder.yudao.module.system.controller.admin.apifile.vo.ApiFileSaveReqVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.apifile.ApiFileDO;
@@ -69,4 +70,12 @@ public class ApiFileServiceImpl implements ApiFileService {
         return apiFileMapper.selectPage(pageReqVO);
     }
 
+    @Override
+    public void enable(Long id) {
+        ApiFileDO apiFile = apiFileMapper.selectById(id);
+        if (apiFile == null) {
+            throw exception(FILE_NOT_EXISTS);
+        }
+        apiFileMapper.updateById(ApiFileDO.builder().id(id).enabled(CommonStatusEnum.DISABLE.getStatus()).build());
+    }
 }

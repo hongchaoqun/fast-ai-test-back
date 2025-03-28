@@ -105,4 +105,14 @@ public class ApiFileController {
                         BeanUtils.toBean(list, ApiFileRespVO.class));
     }
 
+    /**
+     * 设置记录的Enable, 改成 1
+     */
+    @PutMapping("/enable")
+    @Operation(summary = "设置记录的Enable, 改成 1")
+    public CommonResult<Boolean> enable(@RequestParam("id") Long id) {
+        fileService.enable(id);
+        return success(true);
+    }
+
 }

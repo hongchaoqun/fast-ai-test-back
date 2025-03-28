@@ -54,4 +54,5 @@ public interface ApiFileService {
      */
     PageResult<ApiFileDO> getFilePage(ApiFilePageReqVO pageReqVO);
 
+    void enable(Long id);
 }
