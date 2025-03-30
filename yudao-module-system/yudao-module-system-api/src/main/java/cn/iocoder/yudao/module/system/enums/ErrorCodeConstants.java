@@ -175,4 +175,8 @@ public interface ErrorCodeConstants {
 
     ErrorCode DIRECTORY_DATA_NOT_EXISTS = new ErrorCode(1_003_001_002, "分组目录不存在");
 
+    ErrorCode VARIABLE_NOT_EXISTS = new ErrorCode(1_003_001_003, "环境变量不存在");
+
+    ErrorCode ENV_NOT_EXISTS = new ErrorCode(1_003_001_004, "环境不存在");
+
 }
