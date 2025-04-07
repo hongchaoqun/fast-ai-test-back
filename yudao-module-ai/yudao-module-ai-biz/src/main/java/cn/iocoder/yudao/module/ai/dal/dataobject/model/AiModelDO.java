@@ -17,7 +17,7 @@ import lombok.*;
  * @author fansili
  * @since 2024/4/24 19:39
  */
-@TableName("ai_model")
+@TableName("ai_chat_model")
 @KeySequence("ai_model_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @Builder

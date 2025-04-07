@@ -39,6 +39,7 @@ import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.model.StreamingChatModel;
 import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
@@ -361,4 +362,19 @@ public class AiChatMessageServiceImpl implements AiChatMessageService {
         return chatMessageMapper.selectPage(pageReqVO);
     }
 
+    /**
+     * 测试发送消息，默认使用通义大模型
+     * @param sendReqVO 发送信息
+     * @return
+     */
+    @Override
+    public ChatResponse sendMessageTest(AiChatMessageSendReqVO sendReqVO) {
+        ChatModel chatModel = modalService.getChatModel(2l);
+        // 3.2 创建 chat 需要的 Prompt
+        return chatModel.call(new Prompt(
+                sendReqVO.getContent(),
+                OpenAiChatOptions.builder()
+                        .build()
+        ));
+    }
 }

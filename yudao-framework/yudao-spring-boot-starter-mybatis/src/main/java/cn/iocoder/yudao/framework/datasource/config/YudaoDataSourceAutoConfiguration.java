@@ -37,4 +37,6 @@ public class YudaoDataSourceAutoConfiguration {
         return registrationBean;
     }
 
+
+
 }
